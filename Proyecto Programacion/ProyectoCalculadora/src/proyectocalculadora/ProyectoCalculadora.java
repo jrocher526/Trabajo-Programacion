@@ -1,218 +1,174 @@
 package ProyectoCalculadora;
 import java.util.Scanner;
 
+import java.util.Scanner;
+
+import java.util.Scanner;
+
 public class ProyectoCalculadora {
-     public static void main(String[] args) {
+    // Variables globales
+    static int num1, num2;
+    static double resultado = 0;
+
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int num1, num2, option;
-        double resultado = 0;
         
-        do {
-            System.out.println("Calculadora Avanzada");
-            System.out.println();
-            System.out.println("Menú de selección: ");
-            System.out.println("*__________________________________________*");
-            System.out.println("|        Operaciones Básicas              |");
-            System.out.println("*------------------------------------------*");
-            System.out.println("| 1.Suma  2.Resta  3.Multiplicar 4.Dividir |");
-            System.out.println("*------------------------------------------*");
-            System.out.println("|        Operaciones Intermedias         |");
-            System.out.println("*------------------------------------------*");
-            System.out.println("| 5. Raiz Cuadrada  6. MCD  7. MCM        |");
-            System.out.println("*------------------------------------------*");
-            System.out.println("|        Operaciones Avanzadas           |");
-            System.out.println("*------------------------------------------*");
-            System.out.println("| 8. Log. Natural    9.Calc. Área Triángulo |");
-            System.out.println("| 10. Calc. Área Círculo  11.Calc. Área Rectángulo |");
-            System.out.println("*------------------------------------------*");
+        while (true) {
+            // Menú de opciones
+            mostrarMenu();
 
-            option = scanner.nextInt();
+            // Leer opción
+            int option = scanner.nextInt();
 
-            switch(option) {
-                case 1:
-                    resultado = realizarSuma(scanner);
-                    break;
-                case 2:
-                    resultado = realizarResta(scanner);
-                    break;
-                case 3:
-                    resultado = realizarMultiplicar(scanner);
-                    break;
-                case 4:
-                    resultado = realizarDivision(scanner);
-                    break;
-                case 5:
-                    resultado = realizarRaizCuadrada(scanner);
-                    break;
-                case 6:
-                    mcd(scanner);
-                    break;
-                case 7:
-                    mcm(scanner);
-                    break;
-                case 8:
-                    resultado = calcularAreaCirculo(scanner);
-                    break;
-                case 9:
-                    resultado = calcularAreaTriangulo(scanner);
-                    break;
-                case 10:
-                    resultado = calcularAreaRctgl(scanner);
-                    break;
-                case 11:
-                    calcularPrimo (scanner);
-                    break;
-                default:
-                    System.out.println("Opción no válida.");
-                    resultado = 0;
+            if (option == 0) {
+                System.out.println("Has salido del menu.");
+                break; // Salir del bucle si la opción es 0
             }
-            if(option != 11){
+
+            // Leer números solo cuando sea necesario
+            if (option != 5) pedirNumeros(scanner);
+
+            // Ejecutar operación basada en la opción seleccionada
+            switch(option) {
+                case 1: realizarSuma(); break;
+                case 2: realizarResta(); break;
+                case 3: realizarMultiplicar(); break;
+                case 4: realizarDivision(); break;
+                case 5: realizarRaizCuadrada(); break;
+                case 6: mcd(); break;
+                case 7: mcm(); break;
+                case 8: calcularLogaritmoNatural(); break; // Este es opcional, puedes añadirlo
+                case 9: calcularAreaTriangulo(); break;
+                case 10: calcularAreaCirculo(); break;
+                case 11: calcularAreaRectangulo(); break;
+                default: System.out.println("Opción no válida.");
+            }
+
+            // Mostrar resultado de la operación
+            if (option != 6 && option != 7) {  // No mostrar resultado si es MCD o MCM, que no usan resultado
                 System.out.println("El resultado es: " + resultado);
             }
-        } while(option != 0);
-
-        System.out.println("Has salido del menu.");
-        scanner.close();
+        }
     }
 
-    public static double realizarSuma(Scanner scanner) {
-        int num;
-        double suma = 0;
-        do {
-            System.out.println("Introduzca un número, introduzca 0 para ver el resultado: ");
-            num = scanner.nextInt();
-            suma += num;
-        } while(num != 0);
-        return suma;
+    // Mostrar el menú
+    private static void mostrarMenu() {
+        System.out.println("Calculadora Avanzada");
+        System.out.println();
+        System.out.println("Menú de selección: ");
+        System.out.println("*__________________________________________*");
+        System.out.println("|        Operaciones Básicas              |");
+        System.out.println("*------------------------------------------*");
+        System.out.println("| 1.Suma  2.Resta  3.Multiplicar 4.Dividir |");
+        System.out.println("*------------------------------------------*");
+        System.out.println("|        Operaciones Intermedias         |");
+        System.out.println("*------------------------------------------*");
+        System.out.println("| 5. Raiz Cuadrada  6. MCD  7. MCM        |");
+        System.out.println("*------------------------------------------*");
+        System.out.println("|        Operaciones Avanzadas           |");
+        System.out.println("*------------------------------------------*");
+        System.out.println("| 8. Log. Natural    9.Calc. Área Triángulo |");
+        System.out.println("| 10. Calc. Área Círculo  11.Calc. Área Rectángulo |");
+        System.out.println("*------------------------------------------*");
     }
 
-    public static double realizarResta(Scanner scanner) {
-        int num;
-        double resta = 0;
-        do {
-            System.out.println("Introduzca un número, introduzca 0 para ver el resultado: ");
-            num = scanner.nextInt();
-            resta -= num;
-        } while(num != 0);
-        return resta;
-    }
-
-    public static double realizarMultiplicar(Scanner scanner) {
-        int num;
-        double resultadoMultiplicar = 1;
-        do {
-            System.out.println("Introduzca un número, introduzca 0 para ver el resultado: ");
-            num = scanner.nextInt();
-            if(num != 0) {
-                resultadoMultiplicar *= num;
-            }
-        } while(num != 0);
-        return resultadoMultiplicar;
-    }
-
-    public static double realizarDivision(Scanner scanner) {
-        int num1, num2;
-        System.out.println("Introduzca el primer número: ");
+    // Función para pedir dos números
+    private static void pedirNumeros(Scanner scanner) {
+        System.out.print("Introduzca el primer número: ");
         num1 = scanner.nextInt();
-        System.out.println("Introduzca el segundo número: ");
+        System.out.print("Introduzca el segundo número: ");
         num2 = scanner.nextInt();
-        if(num2 == 0) {
+    }
+
+    // Función para pedir un solo número (para raíz cuadrada, logaritmo, etc.)
+    private static void pedirUnNumero(Scanner scanner) {
+        System.out.print("Introduzca un número: ");
+        num1 = scanner.nextInt();
+    }
+
+    // Realizar la suma
+    private static void realizarSuma() {
+        resultado = num1 + num2;
+    }
+
+    // Realizar la resta
+    private static void realizarResta() {
+        resultado = num1 - num2;
+    }
+
+    // Realizar la multiplicación
+    private static void realizarMultiplicar() {
+        resultado = num1 * num2;
+    }
+
+    // Realizar la división
+    private static void realizarDivision() {
+        if (num2 == 0) {
             System.out.println("Error: No se puede dividir por cero.");
-            return 0;
+            resultado = 0;
+        } else {
+            resultado = (double) num1 / num2;
+            System.out.println("El resto de la operación es: " + (num1 % num2));
         }
-        double resultadoDividir = (double) num1 / num2;
-        System.out.println("El resto de la operación es: " + (num1 % num2));
-        return resultadoDividir;
     }
 
-    public static double realizarRaizCuadrada(Scanner scanner) {
-        System.out.println("Introduzca un número: ");
-        int num = scanner.nextInt();
-        return Math.sqrt(num);
+    // Calcular la raíz cuadrada
+    private static void realizarRaizCuadrada() {
+        pedirUnNumero(new Scanner(System.in));  // Pedir solo un número
+        resultado = Math.sqrt(num1);
     }
 
-    public static void mcd(Scanner scanner) {
-        int num1, num2;
-        System.out.println("Introduzca el primer número: ");
-        num1 = scanner.nextInt();
-        System.out.println("Introduzca el segundo número: ");
-        num2 = scanner.nextInt();
-
-        while(num2 != 0) {
-            if(num1 > num2) {
-                num1 -= num2;
-            } else {
-                num2 -= num1;
-            }
+    // Calcular MCD
+    private static void mcd() {
+        int a = num1, b = num2;
+        while (b != 0) {
+            int temp = b;
+            b = a % b;
+            a = temp;
         }
-        System.out.println("El MCD es: " + num1);
+        resultado = a;  // El MCD es el último valor de a
+        System.out.println("El MCD es: " + resultado);
     }
 
-    public static void mcm(Scanner scanner) {
-        int num1, num2;
-        System.out.println("Introduzca el primer número: ");
-        num1 = scanner.nextInt();
-        System.out.println("Introduzca el segundo número: ");
-        num2 = scanner.nextInt();
-        int mcm = (num1 * num2) / calcularMCDValue(num1, num2);
-        System.out.println("El MCM es: " + mcm);
+    // Calcular MCM
+    private static void mcm() {
+        resultado = (num1 * num2) / calcularMCDValue(num1, num2);
+        System.out.println("El MCM es: " + resultado);
     }
 
-    public static int calcularMCDValue(int num1, int num2) {
-        while(num2 != 0) {
-            if(num1 > num2) {
-                num1 -= num2;
-            } else {
-                num2 -= num1;
-            }
+    // Función auxiliar para calcular el MCD
+    private static int calcularMCDValue(int num1, int num2) {
+        while (num2 != 0) {
+            int temp = num2;
+            num2 = num1 % num2;
+            num1 = temp;
         }
         return num1;
     }
 
-    public static double calcularAreaCirculo(Scanner scanner) {
-        System.out.println("Introduzca el radio del círculo: ");
-        double radio = scanner.nextDouble();
-        return Math.PI * radio * radio;
-    }
-
-    public static double calcularAreaTriangulo(Scanner scanner) {
-        System.out.println("Introduzca la base del triángulo: ");
-        double base = scanner.nextDouble();
-        System.out.println("Introduzca la altura del triángulo: ");
-        double altura = scanner.nextDouble();
-        return (base * altura) / 2;
-    }
-
-    public static double calcularAreaRctgl(Scanner scanner) {
-        System.out.println("Introduzca la base del rectángulo: ");
-        double base = scanner.nextDouble();
-        System.out.println("Introduzca la altura del rectángulo: ");
-        double altura = scanner.nextDouble();
-        return base * altura;
-    }
-    public static boolean calcularPrimo(Scanner scanner) {
-        boolean esPrimo = true;
-
-        System.out.println("Dime un número: ");
-        int num = scanner.nextInt();
-        
-        if (num < 2) {
-            esPrimo = false; 
+    // Calcular logaritmo natural (opcional, puedes añadirlo según necesidad)
+    private static void calcularLogaritmoNatural() {
+        pedirUnNumero(new Scanner(System.in));  // Pedir solo un número
+        if (num1 <= 0) {
+            System.out.println("El número debe ser mayor que cero para calcular el logaritmo natural.");
+            resultado = 0;
         } else {
-            for (int m = 2; m <= Math.sqrt(num); m++) {
-                if (num % m == 0) {
-                    esPrimo = false; 
-                    break;
-                }
-            }
+            resultado = Math.log(num1);
         }
+    }
 
-        if (esPrimo) {
-            System.out.println("El número " + num + " es un número primo.");
-        } else {
-            System.out.println("El número " + num + " no es un número primo.");
-        }
+    // Calcular el área de un triángulo
+    private static void calcularAreaTriangulo() {
+        resultado = (num1 * num2) / 2.0;
+    }
 
-        return esPrimo;
+    // Calcular el área de un círculo
+    private static void calcularAreaCirculo() {
+        resultado = Math.PI * num1 * num1;
+    }
+
+    // Calcular el área de un rectángulo
+    private static void calcularAreaRectangulo() {
+        resultado = num1 * num2;
     }
 }
