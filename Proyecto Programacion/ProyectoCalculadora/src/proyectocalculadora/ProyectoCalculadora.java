@@ -37,7 +37,7 @@ public class ProyectoCalculadora {
                 case 5: realizarRaizCuadrada(); break;
                 case 6: mcd(); break;
                 case 7: mcm(); break;
-                case 8: calcularLogaritmoNatural(); break; // Este es opcional, puedes añadirlo
+                case 8: calcularLogaritmoNatural(); break; 
                 case 9: calcularAreaTriangulo(); break;
                 case 10: calcularAreaCirculo(); break;
                 case 11: calcularAreaRectangulo(); break;
@@ -53,9 +53,9 @@ public class ProyectoCalculadora {
 
     // Mostrar el menu
     private static void mostrarMenu() {
-        System.out.println("=====================================================");
-        System.out.println("               CALCULADORA AVANZADA                 ");
-        System.out.println("=====================================================");
+        System.out.println("================================================");
+        System.out.println("               CALCULADORA AVANZADA             ");
+        System.out.println("================================================");
         
         System.out.println("\n[OPERACIONES BASICAS]");
         System.out.println("1. Suma");
@@ -72,7 +72,9 @@ public class ProyectoCalculadora {
         System.out.println("8. Logaritmo Natural");
         System.out.println("9. Calculo area Triangulo");
         System.out.println("10. Calculo area Circulo");
-        System.out
+        System.out.println("================================================");
+        System.out.println("Introduzca numero de operacion a realizar "
+                + "o introduzca 0 para salir:");
 
     }
 
@@ -154,7 +156,8 @@ public class ProyectoCalculadora {
     private static void calcularLogaritmoNatural() {
         pedirUnNumero(new Scanner(System.in));  // Pedir solo un numero
         if (num1 <= 0) {
-            System.out.println("El numero debe ser mayor que cero para calcular el logaritmo natural.");
+            System.out.println("El numero debe ser mayor que cero para "
+                    + "calcular el logaritmo natural.");
             resultado = 0;
         } else {
             resultado = Math.log(num1);
@@ -176,11 +179,9 @@ public class ProyectoCalculadora {
         resultado = num1 * num2;
     }
 
-    {
+    
     
     
     
     
     }
-
-}
