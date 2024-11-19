@@ -53,23 +53,27 @@ public class ProyectoCalculadora {
 
     // Mostrar el menu
     private static void mostrarMenu() {
-        System.out.println("Calculadora Avanzada");
-        System.out.println();
-        System.out.println("menu de seleccion: ");
-        System.out.println("*__________________________________________*");
-        System.out.println("|        Operaciones Basicas              |");
-        System.out.println("*------------------------------------------*");
-        System.out.println("| 1.Suma  2.Resta  3.Multiplicar 4.Dividir |");
-        System.out.println("*------------------------------------------*");
-        System.out.println("|        Operaciones Intermedias         |");
-        System.out.println("*------------------------------------------*");
-        System.out.println("| 5. Raiz Cuadrada  6. MCD  7. MCM        |");
-        System.out.println("*------------------------------------------*");
-        System.out.println("|        Operaciones Avanzadas           |");
-        System.out.println("*------------------------------------------*");
-        System.out.println("| 8. Log. Natural    9.Calc. area Triangulo |");
-        System.out.println("| 10. Calc. area Circulo  11.Calc. area Rectangulo |");
-        System.out.println("*------------------------------------------*");
+        System.out.println("=====================================================");
+        System.out.println("               CALCULADORA AVANZADA                 ");
+        System.out.println("=====================================================");
+        
+        System.out.println("\n[OPERACIONES BASICAS]");
+        System.out.println("1. Suma");
+        System.out.println("2. Resta");
+        System.out.println("3. Multiplicar");
+        System.out.println("4. Dividir");
+        
+        System.out.println("\n[OPERACIONES INTERMEDIAS]");
+        System.out.println("5. Raiz Cuadrada");
+        System.out.println("6. MCD");
+        System.out.println("7. MCM");
+        
+        System.out.println("\n[OPERACIONES AVANZADAS]");
+        System.out.println("8. Logaritmo Natural");
+        System.out.println("9. Calculo area Triangulo");
+        System.out.println("10. Calculo area Circulo");
+        System.out
+
     }
 
     // Funcion para pedir dos numeros
@@ -171,4 +175,12 @@ public class ProyectoCalculadora {
     private static void calcularAreaRectangulo() {
         resultado = num1 * num2;
     }
+
+    {
+    
+    
+    
+    
+    }
+
 }
