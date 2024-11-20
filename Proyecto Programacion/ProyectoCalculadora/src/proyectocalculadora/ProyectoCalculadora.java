@@ -87,15 +87,15 @@ public class ProyectoCalculadora {
         System.out.println("================================================");
 
         System.out.println("\n[OPERACIONES BASICAS]");
-        System.out.println("1. Suma");
-        System.out.println("2. Resta");
+        System.out.println("1. Sumar");
+        System.out.println("2. Restar");
         System.out.println("3. Multiplicar");
         System.out.println("4. Dividir");
 
         System.out.println("\n[OPERACIONES INTERMEDIAS]");
         System.out.println("5. Raiz Cuadrada");
-        System.out.println("6. MCD");
-        System.out.println("7. MCM");
+        System.out.println("6. Mínimo Común Divisor");
+        System.out.println("7. Mínimo Común Múltiplo");
 
         System.out.println("\n[OPERACIONES AVANZADAS]");
         System.out.println("8. Calculo area Triangulo");
