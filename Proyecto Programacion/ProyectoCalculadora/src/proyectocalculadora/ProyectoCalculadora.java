@@ -67,7 +67,7 @@ public class ProyectoCalculadora {
                 case 9 -> calcularAreaCirculo();
                 case 10 -> calcularAreaRectangulo();
                 case 11 -> calcularPrimo();
-                default -> System.out.println("Opción no válida.");
+                default -> System.out.println("Opcion no valida.");
             }
 
             // Mostrar resultado de la operación, excepto en el caso de MCD, MCM y primo
@@ -94,8 +94,8 @@ public class ProyectoCalculadora {
 
         System.out.println("\n[OPERACIONES INTERMEDIAS]");
         System.out.println("5. Raiz Cuadrada");
-        System.out.println("6. Mínimo Común Divisor");
-        System.out.println("7. Mínimo Común Múltiplo");
+        System.out.println("6. Minimo Comun Divisor");
+        System.out.println("7. Minimo Comun Multiplo");
 
         System.out.println("\n[OPERACIONES AVANZADAS]");
         System.out.println("8. Calculo area Triangulo");
@@ -114,9 +114,9 @@ public class ProyectoCalculadora {
      * @param scanner El objeto Scanner utilizado para leer la entrada del usuario.
      */
     public static void pedirNumeros(Scanner scanner) {
-        System.out.print("Introduzca el primer número: ");
+        System.out.print("Introduzca el primer numero: ");
         num1 = scanner.nextInt();
-        System.out.print("Introduzca el segundo número: ");
+        System.out.print("Introduzca el segundo numero: ");
         num2 = scanner.nextInt();
     }
 
@@ -128,7 +128,7 @@ public class ProyectoCalculadora {
      * @param scanner El objeto Scanner utilizado para leer la entrada del usuario.
      */
     public static void pedirUnNumero(Scanner scanner) {
-        System.out.print("Introduzca un número: ");
+        System.out.print("Introduzca un numero: ");
         num1 = scanner.nextInt();
     }
 
@@ -163,7 +163,7 @@ public class ProyectoCalculadora {
             resultado = 0;
         } else {
             resultado = (double) num1 / num2;
-            System.out.println("El resto de la operación es: " + (num1 % num2));
+            System.out.println("El resto de la operacion es: " + (num1 % num2));
         }
     }
 
@@ -255,9 +255,9 @@ public class ProyectoCalculadora {
         }
 
         if (calcularPrimo) {
-            System.out.println("El número " + num1 + " es un número primo.");
+            System.out.println("El numero " + num1 + " es un numero primo.");
         } else {
-            System.out.println("El número " + num1 + " no es un número primo.");
+            System.out.println("El numero " + num1 + " no es un numero primo.");
         }
 
         return calcularPrimo;
