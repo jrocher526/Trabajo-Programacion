@@ -9,8 +9,20 @@ import java.util.Scanner;
 public class ProyectoCalculadora {
 
     // Variables globales
-    static int num1, num2;
-    static double resultado = 0;
+    /**
+     * Primer número ingresado por el usuario.
+     */
+    public static int num1;
+    
+    /**
+     * Segundo número ingresado por el usuario.
+     */
+    public static int num2;
+
+    /**
+     * Variable que almacena el resultado de las operaciones.
+     */
+    public static double resultado = 0;
 
     /**
      * Método principal que ejecuta la calculadora.
@@ -69,7 +81,7 @@ public class ProyectoCalculadora {
      * Muestra el menú de opciones de la calculadora.
      * Informa al usuario sobre las operaciones disponibles.
      */
-    private static void mostrarMenu() {
+    public static void mostrarMenu() {
         System.out.println("================================================");
         System.out.println("               CALCULADORA AVANZADA             ");
         System.out.println("================================================");
@@ -101,7 +113,7 @@ public class ProyectoCalculadora {
      *
      * @param scanner El objeto Scanner utilizado para leer la entrada del usuario.
      */
-    private static void pedirNumeros(Scanner scanner) {
+    public static void pedirNumeros(Scanner scanner) {
         System.out.print("Introduzca el primer número: ");
         num1 = scanner.nextInt();
         System.out.print("Introduzca el segundo número: ");
@@ -115,29 +127,29 @@ public class ProyectoCalculadora {
      *
      * @param scanner El objeto Scanner utilizado para leer la entrada del usuario.
      */
-    private static void pedirUnNumero(Scanner scanner) {
+    public static void pedirUnNumero(Scanner scanner) {
         System.out.print("Introduzca un número: ");
         num1 = scanner.nextInt();
     }
 
     /**
-     * Realiza la operación de suma de dos números.
+     * Realiza la suma de dos números.
      */
-    private static void realizarSuma() {
+    public static void realizarSuma() {
         resultado = num1 + num2;
     }
 
     /**
      * Realiza la operación de resta de dos números.
      */
-    private static void realizarResta() {
+    public static void realizarResta() {
         resultado = num1 - num2;
     }
 
     /**
      * Realiza la operación de multiplicación de dos números.
      */
-    private static void realizarMultiplicar() {
+    public static void realizarMultiplicar() {
         resultado = num1 * num2;
     }
 
@@ -145,7 +157,7 @@ public class ProyectoCalculadora {
      * Realiza la operación de división de dos números.
      * Si el divisor es cero, muestra un mensaje de error.
      */
-    private static void realizarDivision() {
+    public static void realizarDivision() {
         if (num2 == 0) {
             System.out.println("Error: No se puede dividir por cero.");
             resultado = 0;
@@ -158,7 +170,7 @@ public class ProyectoCalculadora {
     /**
      * Calcula la raíz cuadrada de un número.
      */
-    private static void realizarRaizCuadrada() {
+    public static void realizarRaizCuadrada() {
         pedirUnNumero(new Scanner(System.in));  // Pedir solo un número
         resultado = Math.sqrt(num1);
     }
@@ -167,7 +179,7 @@ public class ProyectoCalculadora {
      * Calcula el Máximo Común Divisor (MCD) de dos números.
      * Utiliza el algoritmo de Euclides para calcular el MCD.
      */
-    private static void mcd() {
+    public static void mcd() {
         int a = num1, b = num2;
         while (b != 0) {
             int temp = b;
@@ -181,20 +193,19 @@ public class ProyectoCalculadora {
     /**
      * Calcula el Mínimo Común Múltiplo (MCM) de dos números.
      */
-    private static void mcm() {
+    public static void mcm() {
         resultado = (num1 * num2) / calcularMCDValue(num1, num2);
         System.out.println("El MCM es: " + resultado);
     }
 
     /**
-     * Función auxiliar para calcular el MCD de dos números.
-     * Utiliza el algoritmo de Euclides.
+     * Utiliza el algoritmo de Euclides para calcular el MCD de dos números.
      *
      * @param num1 El primer número.
      * @param num2 El segundo número.
      * @return El MCD de los dos números.
      */
-    private static int calcularMCDValue(int num1, int num2) {
+    public static int calcularMCDValue(int num1, int num2) {
         while (num2 != 0) {
             int temp = num2;
             num2 = num1 % num2;
@@ -206,21 +217,21 @@ public class ProyectoCalculadora {
     /**
      * Calcula el área de un triángulo dado su base y altura.
      */
-    private static void calcularAreaTriangulo() {
+    public static void calcularAreaTriangulo() {
         resultado = (num1 * num2) / 2.0;
     }
 
     /**
      * Calcula el área de un círculo dado su radio.
      */
-    private static void calcularAreaCirculo() {
+    public static void calcularAreaCirculo() {
         resultado = Math.PI * num1 * num1;
     }
 
     /**
      * Calcula el área de un rectángulo dado su base y altura.
      */
-    private static void calcularAreaRectangulo() {
+    public static void calcularAreaRectangulo() {
         resultado = num1 * num2;
     }
 
@@ -230,7 +241,7 @@ public class ProyectoCalculadora {
      *
      * @return `true` si el número es primo, `false` en caso contrario.
      */
-    private static boolean calcularPrimo() {
+    public static boolean calcularPrimo() {
         boolean calcularPrimo = true;
         if (num1 < 2) {
             calcularPrimo = false;
