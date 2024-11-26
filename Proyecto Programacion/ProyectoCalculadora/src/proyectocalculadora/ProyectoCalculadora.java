@@ -4,18 +4,18 @@ import java.util.Scanner;
 
 /**
  * Clase principal del proyecto de la calculadora.
- * Esta clase proporciona un conjunto de operaciones matemáticas básicas, intermedias y avanzadas.
+ * Esta clase proporciona un conjunto de operaciones matematicas basicas, intermedias y avanzadas.
  */
 public class ProyectoCalculadora {
 
     // Variables globales
     /**
-     * Primer número ingresado por el usuario.
+     * Primer numero ingresado por el usuario.
      */
     public static int num1;
     
     /**
-     * Segundo número ingresado por el usuario.
+     * Segundo numero ingresado por el usuario.
      */
     public static int num2;
 
@@ -24,37 +24,37 @@ public class ProyectoCalculadora {
      */
     public static double resultado = 0;
 
-    /**
-     * Método principal que ejecuta la calculadora.
-     * Muestra un menú, lee la opción del usuario y ejecuta la operación correspondiente.
+    /** 
+     * Metodo principal que ejecuta la calculadora.
+     * Muestra un menu, lee la opcion del usuario y ejecuta la operacion correspondiente.
      *
-     * @param args Argumentos de la línea de comandos (no se usan en este caso).
+     * @param args Argumentos de la linea de comandos (no se usan en este caso).
      */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         
         // Bucle principal de operaciones
         while (true) {
-            // Mostrar el menú
+            // Mostrar el menu
             mostrarMenu();
 
-            // Leer opción del usuario
+            // Leer opcion del usuario
             int option = scanner.nextInt();
             
-            // Salir del bucle si la opción es 0
+            // Salir del bucle si la opcion es 0
             if (option == 0) {
                 System.out.println("Has salido del menu.");
                 break; 
             }
 
-            // Leer números solo cuando sea necesario
-            if (option != 5 && option != 7 && option != 11) { // Si la opción no es 5, 7 o 11, pedimos dos números
+            // Leer numeros solo cuando sea necesario
+            if (option != 5 && option != 7 && option != 11) { // Si la opcion no es 5, 7 o 11, pedimos dos numeros
                 pedirNumeros(scanner);
             } else {
-                pedirUnNumero(scanner); // Si la opción es 5, 7 o 11, solo pedimos un número
+                pedirUnNumero(scanner); // Si la opcion es 5, 7 o 11, solo pedimos un numero
             }
 
-            // Ejecutar operación según la opción seleccionada
+            // Ejecutar operacion segun la opcion seleccionada
             switch (option) {
                 case 1 -> realizarSuma();
                 case 2 -> realizarResta();
@@ -67,10 +67,10 @@ public class ProyectoCalculadora {
                 case 9 -> calcularAreaCirculo();
                 case 10 -> calcularAreaRectangulo();
                 case 11 -> calcularPrimo();
-                default -> System.out.println("Opción no válida.");
+                default -> System.out.println("Opcion no valida.");
             }
 
-            // Mostrar resultado de la operación, excepto en el caso de MCD, MCM y primo
+            // Mostrar resultado de la operacion, excepto en el caso de MCD, MCM y primo
             if (option != 5 && option != 6 && option != 11) { 
                 System.out.println("El resultado es: " + resultado); // Mostrar resultado
             }
@@ -78,7 +78,7 @@ public class ProyectoCalculadora {
     }
 
     /**
-     * Muestra el menú de opciones de la calculadora.
+     * Muestra el menu de opciones de la calculadora.
      * Informa al usuario sobre las operaciones disponibles.
      */
     public static void mostrarMenu() {
@@ -94,8 +94,8 @@ public class ProyectoCalculadora {
 
         System.out.println("\n[OPERACIONES INTERMEDIAS]");
         System.out.println("5. Raiz Cuadrada");
-        System.out.println("6. Mínimo Común Divisor");
-        System.out.println("7. Mínimo Común Múltiplo");
+        System.out.println("6. Minimo Comun Divisor");
+        System.out.println("7. Minimo Comun Multiplo");
 
         System.out.println("\n[OPERACIONES AVANZADAS]");
         System.out.println("8. Calculo area Triangulo");
@@ -108,53 +108,53 @@ public class ProyectoCalculadora {
     }
 
     /**
-     * Pide dos números al usuario.
-     * Este método se utiliza cuando la operación requiere dos números de entrada.
+     * Pide dos numeros al usuario.
+     * Este metodo se utiliza cuando la operacion requiere dos numeros de entrada.
      *
      * @param scanner El objeto Scanner utilizado para leer la entrada del usuario.
      */
     public static void pedirNumeros(Scanner scanner) {
-        System.out.print("Introduzca el primer número: ");
+        System.out.print("Introduzca el primer numero: ");
         num1 = scanner.nextInt();
-        System.out.print("Introduzca el segundo número: ");
+        System.out.print("Introduzca el segundo numero: ");
         num2 = scanner.nextInt();
     }
 
     /**
-     * Pide un solo número al usuario.
-     * Este método se utiliza cuando la operación requiere solo un número de entrada, 
-     * como la raíz cuadrada o el cálculo de números primos.
+     * Pide un solo numero al usuario.
+     * Este metodo se utiliza cuando la operacion requiere solo un numero de entrada, 
+     * como la raiz cuadrada o el calculo de numeros primos.
      *
      * @param scanner El objeto Scanner utilizado para leer la entrada del usuario.
      */
     public static void pedirUnNumero(Scanner scanner) {
-        System.out.print("Introduzca un número: ");
+        System.out.print("Introduzca un numero: ");
         num1 = scanner.nextInt();
     }
 
     /**
-     * Realiza la suma de dos números.
+     * Realiza la suma de dos numeros.
      */
     public static void realizarSuma() {
         resultado = num1 + num2;
     }
 
     /**
-     * Realiza la operación de resta de dos números.
+     * Realiza la operacion de resta de dos numeros.
      */
     public static void realizarResta() {
         resultado = num1 - num2;
     }
 
     /**
-     * Realiza la operación de multiplicación de dos números.
+     * Realiza la operacion de multiplicacion de dos numeros.
      */
     public static void realizarMultiplicar() {
         resultado = num1 * num2;
     }
 
     /**
-     * Realiza la operación de división de dos números.
+     * Realiza la operacion de division de dos numeros.
      * Si el divisor es cero, muestra un mensaje de error.
      */
     public static void realizarDivision() {
@@ -163,20 +163,20 @@ public class ProyectoCalculadora {
             resultado = 0;
         } else {
             resultado = (double) num1 / num2;
-            System.out.println("El resto de la operación es: " + (num1 % num2));
+            System.out.println("El resto de la operacion es: " + (num1 % num2));
         }
     }
 
     /**
-     * Calcula la raíz cuadrada de un número.
+     * Calcula la raiz cuadrada de un numero.
      */
     public static void realizarRaizCuadrada() {
         resultado = Math.sqrt(num1);
-        System.out.println("La raíz cuadrada es: " + resultado);
+        System.out.println("La raiz cuadrada es: " + resultado);
     }
 
     /**
-     * Calcula el Máximo Común Divisor (MCD) de dos números.
+     * Calcula el Maximo Comun Divisor (MCD) de dos numeros.
      * Utiliza el algoritmo de Euclides para calcular el MCD.
      */
     public static void mcd() {
@@ -186,12 +186,12 @@ public class ProyectoCalculadora {
             b = a % b;
             a = temp;
         }
-        resultado = a;  // El MCD es el último valor de a
+        resultado = a;  // El MCD es el ultimo valor de a
         System.out.println("El MCD es: " + resultado);
     }
 
     /**
-     * Calcula el Mínimo Común Múltiplo (MCM) de dos números.
+     * Calcula el Minimo Comun Multiplo (MCM) de dos numeros.
      */
     public static void mcm() {
         resultado = (num1 * num2) / calcularMCDValue(num1, num2);
@@ -199,11 +199,11 @@ public class ProyectoCalculadora {
     }
 
     /**
-     * Utiliza el algoritmo de Euclides para calcular el MCD de dos números.
+     * Utiliza el algoritmo de Euclides para calcular el MCD de dos numeros.
      *
-     * @param num1 El primer número.
-     * @param num2 El segundo número.
-     * @return El MCD de los dos números.
+     * @param num1 El primer numero.
+     * @param num2 El segundo numero.
+     * @return El MCD de los dos numeros.
      */
     public static int calcularMCDValue(int num1, int num2) {
         while (num2 != 0) {
@@ -215,31 +215,31 @@ public class ProyectoCalculadora {
     }
 
     /**
-     * Calcula el área de un triángulo dado su base y altura.
+     * Calcula el area de un triangulo dado su base y altura.
      */
     public static void calcularAreaTriangulo() {
         resultado = (num1 * num2) / 2.0;
     }
 
     /**
-     * Calcula el área de un círculo dado su radio.
+     * Calcula el area de un circulo dado su radio.
      */
     public static void calcularAreaCirculo() {
         resultado = Math.PI * num1 * num1;
     }
 
     /**
-     * Calcula el área de un rectángulo dado su base y altura.
+     * Calcula el area de un rectangulo dado su base y altura.
      */
     public static void calcularAreaRectangulo() {
         resultado = num1 * num2;
     }
 
     /**
-     * Comprueba si un número es primo.
-     * Un número es primo si solo es divisible por 1 y por sí mismo.
+     * Comprueba si un numero es primo.
+     * Un numero es primo si solo es divisible por 1 y por si mismo.
      *
-     * @return `true` si el número es primo, `false` en caso contrario.
+     * @return `true` si el numero es primo, `false` en caso contrario.
      */
     public static boolean calcularPrimo() {
         boolean calcularPrimo = true;
@@ -255,9 +255,9 @@ public class ProyectoCalculadora {
         }
 
         if (calcularPrimo) {
-            System.out.println("El número " + num1 + " es un número primo.");
+            System.out.println("El numero " + num1 + " es un numero primo.");
         } else {
-            System.out.println("El número " + num1 + " no es un número primo.");
+            System.out.println("El numero " + num1 + " no es un numero primo.");
         }
 
         return calcularPrimo;
